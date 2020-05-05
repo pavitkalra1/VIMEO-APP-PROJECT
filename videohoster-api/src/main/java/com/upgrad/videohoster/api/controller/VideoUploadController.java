@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.io.UnsupportedEncodingException;
 import java.time.ZonedDateTime;
 import java.util.UUID;
-
+@RestController
 @RequestMapping("/")
 public class VideoUploadController {
 
@@ -39,5 +39,6 @@ public class VideoUploadController {
 
         final VideoEntity createdvideoEntity = videoUploadService.upload(videoEntity, authorization);
         VideoUploadResponse videoUploadResponse = new VideoUploadResponse().id(createdvideoEntity.getUuid()).status("Video SUCCESSFULLY uploaded");
+          return new ResponseEntity<VideoUploadResponse>(videoUploadResponse, HttpStatus.CREATED);
     }
 }
