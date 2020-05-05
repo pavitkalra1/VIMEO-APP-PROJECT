@@ -20,5 +20,6 @@ public class VideoUploadService {
         UserAuthTokenEntity userAuthTokenEntity = videoDao.getUserAuthToken(authorizationToken);
 
         videoEntity.setUser_id(userAuthTokenEntity.getUser());
+         return videoDao.createVideo(videoEntity);
     }
 }
