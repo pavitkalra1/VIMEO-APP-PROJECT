@@ -16,7 +16,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+@RestController
 @RequestMapping("/")
 public class AdminController {
 
@@ -30,6 +30,7 @@ public class AdminController {
         final VideoEntity videoEntity = adminService.getVideo(videoUuid, authorization);
 
         VideoDetailsResponse videoDetailsResponse = new VideoDetailsResponse().video(videoEntity.getVideo()).id((int) videoEntity.getId()).name(videoEntity.getName()).description(videoEntity.getDescription()).status(videoEntity.getStatus());
+        return new ResponseEntity<VideoDetailsResponse>(videoDetailsResponse,HttpStatus.OK);
 
     }
 
@@ -48,6 +49,8 @@ public class AdminController {
         VideoEntity updatedvideoEntity = adminService.updateVideo(videoEntity, authorization);
         UpdateVideoResponse updateVideoResponse = new UpdateVideoResponse().id((int) updatedvideoEntity.getId()).status(updatedvideoEntity.getStatus());
 
+    return new ResponseEntity<UpdateVideoResponse>(updateVideoResponse,HttpStatus.OK);
     }
+
 
 }
