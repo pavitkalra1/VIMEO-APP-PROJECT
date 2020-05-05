@@ -10,9 +10,9 @@ spring:
 
   datasource:
     driverClassName: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/postgres
+    url: jdbc:postgresql://localhost:5432/VIMEO-PROJECT
     username: postgres
-    password: root
+    password: pavitkalra317
 
   jpa:
     properties:
